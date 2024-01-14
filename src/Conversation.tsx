@@ -1,7 +1,7 @@
-import React from "react";
+import { useState } from "react";
 import SendMessage from "./SendMessage";
 const Conversation = () => {
-	const chatList = {
+	const [chatList, setChatList] = useState<{ username: string; conver: { isYou: boolean; userSay: any }[] }>({
 		username: "Emma",
 		conver: [
 			{ isYou: false, userSay: "Hello" },
@@ -9,8 +9,14 @@ const Conversation = () => {
 			{ isYou: false, userSay: "How are you" },
 			{ isYou: true, userSay: "Lorem ipsum dolor sit amet," },
 			{ isYou: true, userSay: "Lorem ipsum dolor sit amet," },
+			{ isYou: true, userSay: "Lorem ipsum dolor sit amet," },
+			{ isYou: true, userSay: "Lorem ipsum dolor sit amet," },
+			{ isYou: true, userSay: "Lorem ipsum dolor sit amet," },
+			{ isYou: true, userSay: "Lorem ipsum dolor sit amet," },
+			{ isYou: true, userSay: "Lorem ipsum dolor sit amet," },
 		],
-	};
+	});
+
 	return (
 		<div className="hidden lg:col-span-2 lg:block">
 			<div className="w-full ">
@@ -24,7 +30,11 @@ const Conversation = () => {
 						<span className="block ml-2 font-bold text-gray-600">{chatList.username}</span>
 						<span className="absolute w-3 h-3 bg-green-600 rounded-full left-10 top-3"></span>
 					</div>
-					<div>Hello Future</div>
+					<div>
+						<div>
+							<p className="text-lg font-large text-gray-900 pr-2">...</p>
+						</div>
+					</div>
 				</div>
 
 				<div className="relative w-full p-6 overflow-y-auto h-[40rem]">
@@ -49,7 +59,10 @@ const Conversation = () => {
 						})}
 					</ul>
 				</div>
-				<SendMessage />
+				<SendMessage
+					chatList={chatList}
+					setChatList={setChatList}
+				/>
 			</div>
 		</div>
 	);
