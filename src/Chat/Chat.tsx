@@ -1,5 +1,6 @@
 import React from "react";
 import Search from "../Search/Search";
+import { Link } from "react-router-dom";
 const Chat = () => {
 	const chatLM = [
 		{
@@ -23,62 +24,6 @@ const Chat = () => {
 			lastM: "Good Morning",
 			urlImage: "https://cdn.pixabay.com/photo/2018/01/15/07/51/woman-3083383__340.jpg",
 		},
-		{
-			name: "Emma",
-			id: "3",
-			time: "6 hour",
-			lastM: "Good Morning",
-			urlImage: "https://cdn.pixabay.com/photo/2018/01/15/07/51/woman-3083383__340.jpg",
-		},
-		{
-			name: "Emma",
-			id: "3",
-			time: "6 hour",
-			lastM: "Good Morning",
-			urlImage: "https://cdn.pixabay.com/photo/2018/01/15/07/51/woman-3083383__340.jpg",
-		},
-		{
-			name: "Emma",
-			id: "3",
-			time: "6 hour",
-			lastM: "Good Morning",
-			urlImage: "https://cdn.pixabay.com/photo/2018/01/15/07/51/woman-3083383__340.jpg",
-		},
-		{
-			name: "Emma",
-			id: "3",
-			time: "6 hour",
-			lastM: "Good Morning",
-			urlImage: "https://cdn.pixabay.com/photo/2018/01/15/07/51/woman-3083383__340.jpg",
-		},
-		{
-			name: "Emma",
-			id: "3",
-			time: "6 hour",
-			lastM: "Good Morning",
-			urlImage: "https://cdn.pixabay.com/photo/2018/01/15/07/51/woman-3083383__340.jpg",
-		},
-		{
-			name: "Emma",
-			id: "3",
-			time: "6 hour",
-			lastM: "Good Morning",
-			urlImage: "https://cdn.pixabay.com/photo/2018/01/15/07/51/woman-3083383__340.jpg",
-		},
-		{
-			name: "Emma",
-			id: "3",
-			time: "6 hour",
-			lastM: "Good Morning",
-			urlImage: "https://cdn.pixabay.com/photo/2018/01/15/07/51/woman-3083383__340.jpg",
-		},
-		{
-			name: "Emma",
-			id: "3",
-			time: "6 hour",
-			lastM: "Good Morning",
-			urlImage: "https://cdn.pixabay.com/photo/2018/01/15/07/51/woman-3083383__340.jpg",
-		},
 	];
 
 	return (
@@ -89,9 +34,10 @@ const Chat = () => {
 				<li>
 					{chatLM.map((eachUser, idx) => {
 						return (
-							<a
+							<Link
 								className="flex items-center px-3 py-2 text-sm transition duration-150 ease-in-out border-b border-gray-300 cursor-pointer hover:bg-gray-100 focus:outline-none"
 								key={idx}
+								to={`/conver/${eachUser.id}`}
 							>
 								<img
 									className="object-cover w-10 h-10 rounded-full"
@@ -105,7 +51,7 @@ const Chat = () => {
 									</div>
 									<span className="block ml-2 text-sm text-gray-600">{eachUser.lastM}</span>
 								</div>
-							</a>
+							</Link>
 						);
 					})}
 				</li>

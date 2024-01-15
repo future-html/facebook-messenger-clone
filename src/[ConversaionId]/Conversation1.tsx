@@ -1,8 +1,8 @@
 import { useState } from "react";
-import SendMessage from "./SendMessage";
-import Link from "./AttachResult/Link";
-import File from "./AttachResult/File";
-const Conversation = () => {
+import SendMessage from "../SendMessage";
+import Link from "../AttachResult/LinkForMessage";
+import File from "../AttachResult/File";
+const Conversation1 = () => {
 	const [chatList, setChatList] = useState<{ username: string; conver: { isYou: boolean; userSay: any }[] }>({
 		username: "Emma",
 		conver: [
@@ -72,4 +72,4 @@ const Conversation = () => {
 	);
 };
 
-export default Conversation;
+export default Conversation1;
