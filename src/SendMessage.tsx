@@ -1,8 +1,8 @@
 import { useState } from "react";
-
 import VoiceFile from "./ToSendMessage/VoiceFile";
 import TypeSomething from "./ToSendMessage/TypeSomething";
 import Attach from "./ToSendMessage/Attach";
+
 type ConverItem = {
 	isYou: boolean;
 	userSay: any;
@@ -22,8 +22,6 @@ const SendMessage: React.FC<SendMessageProps> = ({ chatList, setChatList }) => {
 	const [speechToText, setSpeechToText] = useState<string>("");
 
 	const [textMessage, setTextMessage] = useState<string>("");
-
-	console.log(textMessage);
 
 	const handleSubmit = (event: any) => {
 		setChatList((prevChatList) => {
@@ -57,8 +55,8 @@ const SendMessage: React.FC<SendMessageProps> = ({ chatList, setChatList }) => {
 			<Attach />
 
 			<TypeSomething
-				setTextMessage={setTextMessage}
 				textMessage={textMessage}
+				setTextMessage={setTextMessage}
 			/>
 
 			<VoiceFile />

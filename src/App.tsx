@@ -1,7 +1,7 @@
 import "./App.css";
-import Chat from "./Chat";
+import Chat from "./Chat/Chat";
 import Conversation from "./Conversation";
-
+import Link from "./AttachResult/Link";
 function App() {
 	return (
 		<>

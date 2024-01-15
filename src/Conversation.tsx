@@ -1,5 +1,7 @@
 import { useState } from "react";
 import SendMessage from "./SendMessage";
+import Link from "./AttachResult/Link";
+import File from "./AttachResult/File";
 const Conversation = () => {
 	const [chatList, setChatList] = useState<{ username: string; conver: { isYou: boolean; userSay: any }[] }>({
 		username: "Emma",
@@ -57,6 +59,8 @@ const Conversation = () => {
 								</li>
 							);
 						})}
+						<Link />
+						<File />
 					</ul>
 				</div>
 				<SendMessage
