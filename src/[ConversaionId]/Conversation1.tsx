@@ -1,8 +1,10 @@
 import { useState } from "react";
 import SendMessage from "../SendMessage";
-import Link from "../AttachResult/LinkForMessage";
+import { Link } from "react-router-dom";
+import LinkFormessage from "../AttachResult/LinkForMessage";
 import File from "../AttachResult/File";
-const Conversation1 = () => {
+type OpenChatProps = { openChat: boolean; setOpenChat: React.Dispatch<React.SetStateAction<boolean>> };
+const Conversation1 = ({ openChat, setOpenChat }: OpenChatProps) => {
 	const [chatList, setChatList] = useState<{ username: string; conver: { isYou: boolean; userSay: any }[] }>({
 		username: "Emma",
 		conver: [
@@ -20,7 +22,7 @@ const Conversation1 = () => {
 	});
 
 	return (
-		<div className="hidden lg:col-span-2 lg:block">
+		<div className={openChat ? "lg:col-span-2 lg:block" : "hidden lg:col-span-2 lg:block"}>
 			<div className="w-full ">
 				<div className="relative flex items-center p-3 border-b border-gray-300 justify-between">
 					<div className="flex items-center">
@@ -33,9 +35,11 @@ const Conversation1 = () => {
 						<span className="absolute w-3 h-3 bg-green-600 rounded-full left-10 top-3"></span>
 					</div>
 					<div>
-						<div>
-							<p className="text-lg font-large text-gray-900 pr-2">...</p>
-						</div>
+						<Link to="/">
+							<div onClick={() => setOpenChat((prev) => !prev)}>
+								<p className="text-lg font-large text-gray-900 pr-2">...</p>
+							</div>
+						</Link>
 					</div>
 				</div>
 
@@ -59,7 +63,7 @@ const Conversation1 = () => {
 								</li>
 							);
 						})}
-						<Link />
+						<LinkFormessage />
 						<File />
 					</ul>
 				</div>
