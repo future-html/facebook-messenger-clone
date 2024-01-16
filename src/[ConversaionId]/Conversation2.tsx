@@ -1,9 +1,11 @@
 import React from "react";
 import { useState } from "react";
-import Link from "../AttachResult/LinkForMessage";
+import LinkForMessage from "../AttachResult/LinkForMessage";
 import File from "../AttachResult/File";
 import SendMessage from "../SendMessage";
-const Conversation2 = () => {
+import { Link } from "react-router-dom";
+type OpenChatProps = { openChat: boolean; setOpenChat: React.Dispatch<React.SetStateAction<boolean>> };
+const Conversation2 = ({ openChat, setOpenChat }: OpenChatProps) => {
 	const [chatList, setChatList] = useState<{ username: string; conver: { isYou: boolean; userSay: any }[] }>({
 		username: "Jhon Don",
 		conver: [
@@ -34,15 +36,17 @@ const Conversation2 = () => {
 						<span className="absolute w-3 h-3 bg-green-600 rounded-full left-10 top-3"></span>
 					</div>
 					<div>
-						<div>
-							<p className="text-lg font-large text-gray-900 pr-2">...</p>
-						</div>
+						<Link to="/">
+							<div onClick={() => setOpenChat((prev) => !prev)}>
+								<p className="text-lg font-large text-gray-900 pr-2">...</p>
+							</div>
+						</Link>
 					</div>
 				</div>
 
 				<div className="relative w-full p-6 overflow-y-auto h-[40rem]">
 					<ul className="space-y-2">
-						<Link />
+						<LinkForMessage />
 						<File />
 						{chatList.conver.map((each, index) => {
 							return (

@@ -28,7 +28,10 @@ function App() {
 
 	return (
 		<Fragment>
-			<div className="container mx-auto">
+			<div
+				className="container mx-auto"
+				id="leftToRight"
+			>
 				{width > 1024 && (
 					<div className="min-w-full border rounded lg:grid lg:grid-cols-3">
 						<Chat
@@ -47,7 +50,12 @@ function App() {
 							></Route>
 							<Route
 								path="/conver/2"
-								element={<Conversation2 />}
+								element={
+									<Conversation2
+										openChat={openChat}
+										setOpenChat={setOpenChat}
+									/>
+								}
 							></Route>
 						</Routes>
 					</div>
@@ -73,7 +81,12 @@ function App() {
 								></Route>
 								<Route
 									path="/conver/2"
-									element={<Conversation2 />}
+									element={
+										<Conversation2
+											openChat={openChat}
+											setOpenChat={setOpenChat}
+										/>
+									}
 								></Route>
 							</Routes>
 						)}

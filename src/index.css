@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#leftToRight {
+	animation: run ease 3s;
+}
+
+@keyframes run {
+	0% {
+		margin-left: -98%;
+	}
+	100% {
+		margin-left: 0%;
+	}
+}
