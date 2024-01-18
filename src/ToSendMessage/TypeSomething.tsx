@@ -19,16 +19,16 @@ const TypeSomething: React.FC<TextMessageProps> = ({ textMessage, setTextMessage
 	return (
 		<div className="block w-full py-2 pl-4 pr-4 mx-3 bg-gray-100 rounded-full outline-none focus:text-gray-700 ">
 			<label htmlFor="message">
-				<div className="flex justify-between h-[4rem]">
+				<div
+					className="flex justify-between h-[1.5rem]"
+					id="textarea1"
+				>
 					<textarea
 						value={textMessage}
 						onChange={handleChange}
 						className="block w-full  bg-gray-100  outline-none focus:text-gray-700  resize-none rounded-md"
 					/>
-					<textarea
-						// value={transcript}
-						className="block w-full  bg-gray-100  outline-none focus:text-gray-700  resize-none rounded-md"
-					/>
+
 					<div className="flex items-center">
 						<button>
 							<svg

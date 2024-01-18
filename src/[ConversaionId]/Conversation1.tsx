@@ -22,8 +22,8 @@ const Conversation1 = ({ openChat, setOpenChat }: OpenChatProps) => {
 	});
 
 	return (
-		<div className={openChat ? "lg:col-span-2 lg:block" : "hidden lg:col-span-2 lg:block"}>
-			<div className="w-full ">
+		<div className={openChat ? "lg:col-span-2 lg:block opacity-fadeinout" : "hidden lg:col-span-2 lg:block"}>
+			<div className="w-full">
 				<div className="relative flex items-center p-3 border-b border-gray-300 justify-between">
 					<div className="flex items-center">
 						<img

@@ -3,8 +3,6 @@ import Search from "../Search/Search";
 import { Link } from "react-router-dom";
 type OpenChatProps = { openChat: boolean; setOpenChat: React.Dispatch<React.SetStateAction<boolean>> };
 const Chat = ({ openChat, setOpenChat }: OpenChatProps) => {
-	console.log(openChat);
-	console.log(setOpenChat);
 	const chatLM = [
 		{
 			name: "Jhon Don",

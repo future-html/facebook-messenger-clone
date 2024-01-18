@@ -2,12 +2,15 @@ import "./App.css";
 import Chat from "./Chat/Chat";
 import Conversation1 from "./[ConversaionId]/Conversation1";
 import LinkForMessage from "./AttachResult/LinkForMessage";
-import { Fragment, useState, useEffect } from "react";
+import { Fragment, useState, useEffect, useRef } from "react";
 import Conversation2 from "./[ConversaionId]/Conversation2";
-import { Router, Route, Routes } from "react-router-dom";
+import { Router, Route, Routes, useParams } from "react-router-dom";
 function App() {
 	const [width, setWidth] = useState(window.innerWidth);
-
+	const linkRef = useRef();
+	console.log(linkRef, "link");
+	const { username } = useParams();
+	console.log(username, "user");
 	useEffect(() => {
 		// Function to update the width state
 		const updateWidth = () => {
@@ -23,16 +26,12 @@ function App() {
 		};
 	}, []); // Empty dependency array means this effect runs once after the initial render
 
-	console.log(width);
 	const [openChat, setOpenChat] = useState(false);
 
 	return (
 		<Fragment>
-			<div
-				className="container mx-auto"
-				id="leftToRight"
-			>
-				{width > 1024 && (
+			{width > 1024 && (
+				<div className="container mx-auto  ">
 					<div className="min-w-full border rounded lg:grid lg:grid-cols-3">
 						<Chat
 							openChat={openChat}
@@ -54,13 +53,19 @@ function App() {
 									<Conversation2
 										openChat={openChat}
 										setOpenChat={setOpenChat}
+										width={width}
 									/>
 								}
 							></Route>
 						</Routes>
 					</div>
-				)}
-				{width <= 1024 && (
+				</div>
+			)}
+			{width <= 1024 && (
+				<div
+					className="container mx-auto"
+					id={!openChat ? "" : "leftToRight"}
+				>
 					<div className="min-w-full border rounded">
 						{!openChat && (
 							<Chat
@@ -85,14 +90,15 @@ function App() {
 										<Conversation2
 											openChat={openChat}
 											setOpenChat={setOpenChat}
+											width={width}
 										/>
 									}
 								></Route>
 							</Routes>
 						)}
 					</div>
-				)}
-			</div>
+				</div>
+			)}
 		</Fragment>
 	);
 }
@@ -100,3 +106,4 @@ function App() {
 export default App;
 
 // can click link to move the conversation page and return to chat conversation
+// use Params to navigate the username
